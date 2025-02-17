@@ -8,7 +8,7 @@ RMARGN        = $53
 '
 '   swidth: 40,64,80
 '
-proc ScreenWidth swidth
+proc SetScreenWidth swidth
   data _dt() byte = 81,65
 
   for x=1 to 0 step -1
@@ -24,9 +24,28 @@ proc ScreenWidth swidth
 endproc
 
 '
+' Get current screen width
+'
+' return:
+    swidth = 40
+proc GetScreenWidth
+  swidth = peek(RMARGN)+1
+endproc
+
+'
 ' CON 40/64/80 - test
 '
-@ScreenWidth(80)
-swidth = peek(RMARGN)+1
+
+' Get the current width
+@GetScreenWidth
+previousScreenWidth = swidth
+
+' set width to 80
+@SetScreenWidth(80)
+
+' check the current width
+@GetScreenWidth
+
+? "Previous width: "; previousScreenWidth
 ? "Screen width: "; swidth
 
