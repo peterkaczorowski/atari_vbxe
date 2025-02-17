@@ -1,7 +1,12 @@
 
+' Atari System Equates
+'
+RMARGN        = $53
 
+'
 ' Set the line width in number of characters for the screen
-' swidth: 40,64,80
+'
+'   swidth: 40,64,80
 '
 proc ScreenWidth swidth
   data _dt() byte = 81,65
@@ -19,7 +24,9 @@ proc ScreenWidth swidth
 endproc
 
 '
-' main
+' CON 40/64/80 - test
 '
-@ScreenWidth 80
+@ScreenWidth(80)
+swidth = peek(RMARGN)+1
+? "Screen width: "; swidth
 
