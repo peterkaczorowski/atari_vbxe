@@ -38,7 +38,7 @@ endproc
 
 ' Get the current width
 @GetScreenWidth
-previousScreenWidth = swidth
+pwidth = swidth
 
 ' set width to 80
 @SetScreenWidth(80)
@@ -46,6 +46,6 @@ previousScreenWidth = swidth
 ' check the current width
 @GetScreenWidth
 
-? "Previous width: "; previousScreenWidth
+? "Previous width: "; pwidth
 ? "Screen width: "; swidth
 
