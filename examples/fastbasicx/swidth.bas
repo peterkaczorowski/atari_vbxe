@@ -16,7 +16,7 @@ proc ScreenWidth swidth
 
   if swidth!=40 then xio #0,swidth,12,192,"E:"
   put 29
-ndproc
+endproc
 
 '
 ' main
